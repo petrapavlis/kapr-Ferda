@@ -1,0 +1,144 @@
+/* 
+Typography
+font-family: 'Exo 2', sans-serif;
+font-family: 'Open Sans', sans-serif;
+*/
+
+html {
+  box-sizing: border-box;
+}
+*,
+:after,
+:before {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: "Exo 2", sans-serif;
+  font-size: 1em;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 30' opacity='0.1' width='80' height='60'%3E%3Cpath d='M 0 15 q 10 -7 20 0 t 20 0' fill='none' stroke='hsl(0, 0%25, 100%25)' stroke-linecap='round' stroke-width='2' /%3E%3C/svg%3E"),
+    linear-gradient(to bottom, #24243e, #302b63, #0f0c29), #0f0c29;
+  color: white;
+  min-height: 100vh;
+}
+
+.wrap {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.text {
+  padding: 5% 0 5% 5%;
+  width: 50vw;
+}
+
+.fish {
+  position: relative;
+}
+
+.ferda {
+  width: 45vw;
+  height: auto;
+  padding: 5% 0;
+  margin-left: -5%;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 3.5em;
+  text-shadow: 0px 4px 48px rgba(255, 255, 255, 0.2);
+}
+
+h2 {
+  font-weight: normal;
+  font-size: 2.5em;
+  text-shadow: 0px 4px 48px rgba(255, 255, 255, 0.2);
+  margin-top: -10px;
+}
+
+button {
+  background-color: #0f0c2980;
+  border: solid white 2px;
+  color: white;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 1em;
+  letter-spacing: 0.1em;
+  width: 200px;
+  padding: 12px 24px;
+  margin: 10px 10px 10px 0;
+  border-radius: 5px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #e3ae00;
+}
+
+.bubbles {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  position: absolute;
+  top: 10%;
+  left: -28%;
+  overflow: hidden;
+}
+
+.bubble {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  /* border: 2px solid rgba(255, 255, 255, 0.7); */
+  background-color: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  bottom: 0;
+  left: 45%;
+}
+
+@media only screen and (max-width: 991px) {
+  h1 {
+    font-size: 3em;
+  }
+
+  h2 {
+    font-size: 2em;
+  }
+
+  .bubbles {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  h1 {
+    font-size: 2.5em;
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .text {
+    text-align: center;
+    padding: 5%;
+    width: 100vw;
+  }
+
+  .ferda {
+    width: 50vw;
+    height: auto;
+    padding: 5% 5% 5% 0;
+    margin-left: auto;
+  }
+}
