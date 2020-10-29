@@ -1,5 +1,5 @@
 // Najede text a tlačítka
-const intro = () => {
+let intro = () => {
 	let tl = gsap.timeline ({defaults: {opacity: 0, ease: "back"}});
   tl.from ("h1", {duration: 2, x: 80})
   .from ("h2", {duration: 2, x: -80}, "<") // start when previous tween begins
@@ -24,8 +24,8 @@ gsap.to(".bubble", {
 
 
 // Ferda si plave na místě a vyčkává na verdikt
-const ferda = document.querySelector(".ferda")
-const ferdaFloating = () => {
+let ferda = document.querySelector(".ferda")
+let ferdaFloating = () => {
   let tl = gsap.timeline({defaults:{duration:3, ease:"Power1.easeInOut", repeat:-1, yoyo:true
     }});
     tl.to(ferda, {y:"-=30", x:"+=20", rotation:"-=3"})
@@ -44,6 +44,34 @@ const ferdaFloating = () => {
 
 
 // Na stisk tlačítka se vykoná akce - smrt nebo svoboda - Ferda umře a plave břichem vzhůru nebo odpluje z orazovky
-document.querySelector(".letDie").onclick = () => gsap.to(ferda, {rotateX: 180, duration: 1});
-document.querySelector(".letLive").onclick = () => gsap.to(ferda, {x: -3000, duration: 20, opacity: 0});
+let ferdaIsDead = () => {
+  let all = gsap.exportRoot();
+  gsap.to(all, {timeScale: 0});
+  gsap.to(ferda, {rotateX: 180, duration: 1});
+  gsap.to(".bubble", {opacity:0, duration: 2});
+}
 
+let ferdaIsFree = () => {
+  let all = gsap.exportRoot();
+  gsap.to(all, {timeScale: 0});
+  gsap.to(ferda, {rotateY: 180});
+  gsap.to(".bubble", {opacity:0, duration: 2});
+  gsap.to(ferda, {x: 3000, duration: 20});
+}
+
+// let freeAfterDead = () => {
+//   let all = gsap.exportRoot();
+//   gsap.to(all, {timeScale: 0});
+//   gsap.to(ferda, {rotateX: 180, duration: 1});
+//   gsap.to(ferda, {rotateY: 180});
+//   gsap.to(".bubble", {opacity:0, duration: 2});
+//   gsap.to(ferda, {x: 3000, duration: 20});
+// }
+
+document.querySelector(".letDie").addEventListener("click", ferdaIsDead)
+document.querySelector(".letLive").addEventListener("click", ferdaIsFree)
+
+// document.querySelector(".letLive").addEventListener("click", () => {
+//   if (ferdaIsDead === true) {return freeAfterDead}
+//   else {return ferdaIsFree}
+// })
