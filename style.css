@@ -106,10 +106,6 @@ button:hover {
   h2 {
     font-size: 2em;
   }
-
-  .bubbles {
-    display: none;
-  }
 }
 
 @media only screen and (max-width: 768px) {
